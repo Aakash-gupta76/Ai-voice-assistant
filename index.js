@@ -63,25 +63,25 @@ else if(message.includes("Who are you?")){
 }
 else if(message.includes("Lyra open my portfolio website")){
     speak('your portfolio is opening...')
-window.open("https://aakash-gupta76.github.io/Modern-portfolio-website/");
+window.open("https://aakash-gupta76.github.io/Modern-portfolio-website/","_blank");
 speak("This is your portfolio website, Aakash sir");
 
 }
 else if(message.includes("Lyra open my instagram account")){
     speak('your instagram account is opening...')
-window.open("https://www.instagram.com/developer_baniya4959?igsh=ZG1wdWd6cjlrbTRx");
+window.open("https://www.instagram.com/developer_baniya4959?igsh=ZG1wdWd6cjlrbTRx","_blank");
 speak("This is your instagram account, Aakash sir");
 
 }
 else if(message.includes("Lyra open my linkdin account")){
     speak('your linkdin account is opening...')
-window.open("https://www.linkedin.com/in/aakash-gupta760771");
+window.open("https://www.linkedin.com/in/aakash-gupta760771","_blank");
 speak("This is your linkdin account, Aakash sir");
 
 }
 else if(message.includes("Lyra open my github account")){
     speak('your githuib account is opening...')
-window.open("https://github.com/Aakash-gupta76");
+window.open("https://github.com/Aakash-gupta76","_blank");
 speak("This is your github account, Aakash sir");
 
 }
@@ -94,5 +94,6 @@ speak("This is your github account, Aakash sir");
 
 }
 }
+
 
 
