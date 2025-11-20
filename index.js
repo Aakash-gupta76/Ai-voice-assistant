@@ -86,14 +86,15 @@ speak("This is your github account, Aakash sir");
 
 }
 else {
-    speak(`this nis what i found on internet regarding${message.replace("Lyra","")}`)
+    speak(`this is what i found on internet regarding ${message.replace("Lyra","")||message.replace("lira","")}`)
 
-window.open(`https://www.google.com/search?q=${message.replace("Lyra","")}`);
+window.open(`https://www.google.com/search?q=${message}`);
 
 
 
 }
 }
+
 
 
 
