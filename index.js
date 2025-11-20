@@ -86,14 +86,15 @@ speak("This is your github account, Aakash sir");
 
 }
 else {
-    speak(`this nis what i found on internet regarging${message.replace("Lyra","")}`)
+    speak(`this nis what i found on internet regarding${message.replace("Lyra","")}`)
 
 window.open(`https://www.google.com/search?q=${message.replace("Lyra","")}`);
-speak("This is your github account, Aakash sir");
+
 
 
 }
 }
+
 
 
 
