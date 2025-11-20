@@ -32,7 +32,7 @@ h1{
     font-size: 50px;
     text-shadow: 0 0 2vmin;
 }
- video #voice{
+ #voice{
     width:200px;
     display:none;
 
@@ -95,4 +95,5 @@ cursor: pointer;
         font-size:30px;
     }
 }
+
 
