@@ -34,7 +34,7 @@ h1{
 }
  video #voice{
     width:200px;
-    display:block;
+    display:none;
 
 }
 .btn{
@@ -95,3 +95,4 @@ cursor: pointer;
         font-size:30px;
     }
 }
+
