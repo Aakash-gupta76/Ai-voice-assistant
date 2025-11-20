@@ -53,8 +53,45 @@ border: none;
 transition: all 0.5s;
 cursor: pointer;
 }
-#btn:hover{
+.btn:hover{
     box-shadow: 2px 2px 20px rgb(21,145,207), 2px 2px 20px rgb(201,41,116);
     letter-spacing: 2px;
 
+
+}
+@media (max-width:650px) {
+    #logo{
+        width:20vh;
+    }
+    .btn{
+        width:50vh;
+    }
+    h1{
+        font-size: 20px;
+    }
+    #name{
+        font-size:25px;
+
+    }
+    #vi{
+        font-size:30px;
+    }
+}
+@media (max-width:400px) {
+    #logo{
+        width:25vh;
+    }
+    .btn{
+        width:55vh;
+    }
+    h1{
+        font-size: 20px;
+    }
+    #name{
+        font-size:25px;
+
+    }
+    #vi{
+        font-size:30px;
+    }
 }
