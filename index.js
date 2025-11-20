@@ -1,14 +1,13 @@
-
 const content=document.querySelector("#content")
 const voice=document.querySelector("#voice")
 const btn=document.querySelector(".btn")
-function speak(text){
-    let text_speak=new SpeechSynthesisUtterance(text)
+function speak(message){
+    let text_speak=new SpeechSynthesisUtterance(message)
     text_speak.rate=1;
     text_speak.pitch=1;
     text_speak.volume=1;
-    text_speak.lang="hi-GB";
-    window.speechSynthesis.speak(text_speak)
+    text_speak.lang="hindi";
+window.speechSynthesis.speak(text_speak)
 
 }
 function wishMe(){
@@ -31,24 +30,25 @@ function wishMe(){
 }
 window.addEventListener('load',()=>{
    wishMe();
-})
+});
 
 
-let speehReRecognition=window.SpeechRecognition||window.webkitSpeechRecognition
-let recognition=new speechRecognition()
+let SpeechRecognition=window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition=new SpeechRecognition()
 recognition.onresult=(event)=>{
    let currentIndex= event.resultIndex
    let transcript=event.results[currentIndex][0].transcript
    content.innerText=transcript;
-    console.log(event)
+    console.log(transcript);
     takeCommand(transcript.toLowerCase());
-}
+};
+
 btn.addEventListener("click",()=>{
     recognition.start();
     btn.style.display="none";
     voice.style.display='block';
 
-})
+});
 function takeCommand(message){
      btn.style.display="flex";
         voice.style.display='none';
@@ -93,5 +93,6 @@ speak("This is your github account, Aakash sir");
 
 
 }
-
 }
+
+
