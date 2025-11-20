@@ -52,7 +52,7 @@ btn.addEventListener("click",()=>{
 function takeCommand(message){
      btn.style.display="flex";
         voice.style.display='none';
-if(message.hoursincludes("Hello,Lyra")||message.hours.includes("Hey,Lyra")){
+if(message.includes("Hello,Lyra")||message.includes("Hey,Lyra")){
 
     speak("hello,Aakash sir,How can I help you?");
 
@@ -63,25 +63,25 @@ else if(message.includes("Who are you?")){
 }
 else if(message.includes("Lyra open my portfolio website")){
     speak('your portfolio is opening...')
-window.open("///");
+window.open("https://aakash-gupta76.github.io/Modern-portfolio-website/");
 speak("This is your portfolio website, Aakash sir");
 
 }
 else if(message.includes("Lyra open my instagram account")){
     speak('your instagram account is opening...')
-window.open("///");
+window.open("https://www.instagram.com/developer_baniya4959?igsh=ZG1wdWd6cjlrbTRx");
 speak("This is your instagram account, Aakash sir");
 
 }
 else if(message.includes("Lyra open my linkdin account")){
     speak('your linkdin account is opening...')
-window.open("///");
+window.open("https://www.linkedin.com/in/aakash-gupta760771");
 speak("This is your linkdin account, Aakash sir");
 
 }
 else if(message.includes("Lyra open my github account")){
     speak('your githuib account is opening...')
-window.open("///");
+window.open("https://github.com/Aakash-gupta76");
 speak("This is your github account, Aakash sir");
 
 }
@@ -93,4 +93,5 @@ speak("This is your github account, Aakash sir");
 
 
 }
+
 }
