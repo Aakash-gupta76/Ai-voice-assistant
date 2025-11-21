@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    margin-top: 40px;
+    margin-top:8px;
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0);
@@ -14,10 +14,35 @@ body{
     gap: 20px;
     flex-direction: column;
 }
+nav{
+    height: 50px;
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+
+    
+}
+p{
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 20px;
+    text-shadow: 2px 2px 2px 1vmin red;
+    color:white;
+
+}
+nav img{
+    height: 40px;
+    align-items:center;
+    border-radius: 50%;
+     margin-right: 30px;
+}
 #logo{
     width:10vw;
 
     border-radius: 10px;
+    box-shadow:0px 4px 15px rgb(0, 255, 234);
 }
 h1{
     color: white;
@@ -94,6 +119,27 @@ cursor: pointer;
         font-size:30px;
     }
 }
+@media (max-width:300px) {
+    #logo{
+        width:30vh;
+    }
+    .btn{
+        width:45vh;
+    }
+    h1{
+        font-size: 25px;
+        text-align: center;
+    }
+    #name{
+        font-size:28px;
+
+    }
+    #vi{
+        font-size:35px;
+    }
+}
+
+
 
 
 
