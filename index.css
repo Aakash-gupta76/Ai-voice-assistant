@@ -58,8 +58,12 @@ h1{
     text-shadow: 0 0 2vmin;
 }
  #voice{
-    width:200px;
+    width:250px;
+    height: 250px;
+    font-size: 50px;
     display:none;
+    box-shadow: 1px 0 15px 2vmin blue;
+    border-radius: 50%;
 
 }
 .btn{
@@ -119,7 +123,7 @@ cursor: pointer;
         font-size:30px;
     }
 }
-@media (max-width:250px) {
+@media (max-width:300px) {
     #logo{
         width:30vh;
     }
@@ -138,6 +142,8 @@ cursor: pointer;
         font-size:35px;
     }
 }
+
+
 
 
 
