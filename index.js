@@ -1,19 +1,27 @@
+
 const content=document.querySelector("#content")
 const voice=document.querySelector("#voice")
 const btn=document.querySelector(".btn")
-function speak(message){
-    let text_speak=new SpeechSynthesisUtterance(message)
+function speak(text){
+    let text_speak=new SpeechSynthesisUtterance(text)
     text_speak.rate=1;
     text_speak.pitch=1;
     text_speak.volume=1;
-    text_speak.lang="hindi";
+    text_speak.lang="en-IN"
+
+    
+    
 window.speechSynthesis.speak(text_speak)
 
 }
+
+
+
+
 function wishMe(){
     let day=new Date()
     let hours=day.getHours()
-    console.log(hours);
+    
     if(hours>=0 && hours<12){
         speak("Good morning Aakash sir");
 
@@ -29,12 +37,12 @@ function wishMe(){
 
 }
 window.addEventListener('load',()=>{
-   wishMe();
+ 
 });
 
 
 let SpeechRecognition=window.SpeechRecognition || window.webkitSpeechRecognition;
-let recognition=new SpeechRecognition()
+let recognition=new SpeechRecognition();
 recognition.onresult=(event)=>{
    let currentIndex= event.resultIndex
    let transcript=event.results[currentIndex][0].transcript
@@ -43,57 +51,99 @@ recognition.onresult=(event)=>{
     takeCommand(transcript.toLowerCase());
 };
 
+
+
 btn.addEventListener("click",()=>{
     recognition.start();
     btn.style.display="none";
     voice.style.display='block';
 
 });
+
+
+
 function takeCommand(message){
-     btn.style.display="flex";
-        voice.style.display='none';
-if(message.includes("Hello,Lyra")||message.includes("Hey,Lyra")){
+        btn.style.display="flex";
+    voice.style.display="none";
+    if(message.includes("hii")|| message.includes("hey")|| message.includes("hello") || message.includes("good")||message.includes("hi layra")){
+        
+        speak("Hi Aakash sir ! How can I help you sir?");
+    }
+     else if(message.includes("who are you?")||message.includes("What is your name?")){
+        speak("I am layra a virtual assistant created by Aakash sir");
+    }
+       else if(message.includes("How are you?")||message.includes("whats`up")){
+        speak("I am fine,How can I help you sir");
+    }
 
-    speak("hello,Aakash sir,How can I help you?");
+    else if(message.includes("open youtube")){
+        speak("opening youtube...")
+        window.open("https://www.youtube.com/","_blank");
+        speak("your task is completed sir")
 
-}
-else if(message.includes("Who are you?")){
-    speak("Hello sir,I`m Lyra a Virtual assistant created by Aakash gupta sir");
+    }
+       else if(message.includes("open facebook")){
+        speak("opening facebook...")
+        window.open("https://www.facebook.com/","_blank");
+         speak("your task is completed sir")
 
-}
-else if(message.includes("Lyra open my portfolio website")){
-    speak('your portfolio is opening...')
-window.open("https://aakash-gupta76.github.io/Modern-portfolio-website/","_blank");
-speak("This is your portfolio website, Aakash sir");
-
-}
-else if(message.includes("Lyra open my instagram account")){
-    speak('your instagram account is opening...')
-window.open("https://www.instagram.com/developer_baniya4959?igsh=ZG1wdWd6cjlrbTRx","_blank");
-speak("This is your instagram account, Aakash sir");
-
-}
-else if(message.includes("Lyra open my linkdin account")){
-    speak('your linkdin account is opening...')
-window.open("https://www.linkedin.com/in/aakash-gupta760771","_blank");
-speak("This is your linkdin account, Aakash sir");
-
-}
-else if(message.includes("Lyra open my github account")){
+    }
+    else if(message.includes("open my github")){
     speak('your githuib account is opening...')
 window.open("https://github.com/Aakash-gupta76","_blank");
-speak("This is your github account, Aakash sir");
+ speak("your task is completed sir")
+    }
+       else if(message.includes("open my instagram")){
+        speak("opening instagram...")
+        window.open("https://www.instagram.com/","_blank");
+         speak("your task is completed sir")
+
+    }
+     else if(message.includes("open my portfolio")){
+    speak('your portfolio is opening...')
+ window.open("https://aakash-gupta76.github.io/Modern-portfolio-website/","_blank");
+ speak("your task is completed sir")
+
 
 }
-else {
-    speak(`this is what i found on internet regarding ${message.replace("Lyra","")||message.replace("lira","")}`)
+       else if(message.includes("open spotify")){
+        speak("opening sportify...")
+        window.open("https://open.spotify.com/","_blank");
+         speak("your task is completed sir")
 
-window.open(`https://www.google.com/search?q=${message}`);
+    }
+       else if(message.includes("open whatsapp")){
+        speak("opening whatsapp...")
+        window.open("whatsapp://","_blank");
+         speak("your task is completed sir")
 
+    }
+        else if(message.includes("time")){
+        let time=new Date().toLocaleString(undefined,{hour:"numeric",minute:"numeric"})
+        speak(time);
 
+    }
+       else if(message.includes("date")){
+        let date=new Date().toLocaleString(undefined,{day:"numeric",month:"short",year:"numeric"})
+        speak(date);
+
+    }
+    else if(message.includes("open my linkedin")){
+    speak('your linkedin account is opening')
+window.open("https://www.linkedin.com/in/aakash-gupta760771","_blank");
+ speak("your task is completed sir")
 
 }
+      else {
+        
+        let finalText="this is what i found on internet regarding"+message.replace("lyra","")||message.replace("layra","")
+
+     speak(finalText)
+
+window.open(`https://www.google.com/search?q=${message.replace("lyra","")}`,"_blank")
+    }
 }
+
 
 
 
