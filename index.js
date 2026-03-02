@@ -1,13 +1,13 @@
-
 const content=document.querySelector("#content")
-const voice=document.querySelector("#voice")
+const voice=document.querySelector("#img")
 const btn=document.querySelector(".btn")
+const para=document.querySelector(".listen")
 function speak(text){
     let text_speak=new SpeechSynthesisUtterance(text)
     text_speak.rate=1;
     text_speak.pitch=1;
     text_speak.volume=1;
-    text_speak.lang="en-IN"
+    text_speak.lang="hi-IN";
 
     
     
@@ -37,6 +37,7 @@ function wishMe(){
 
 }
 window.addEventListener('load',()=>{
+    // wishMe();
  
 });
 
@@ -57,6 +58,8 @@ btn.addEventListener("click",()=>{
     recognition.start();
     btn.style.display="none";
     voice.style.display='block';
+    para.style.display="inline";
+    
 
 });
 
@@ -65,14 +68,20 @@ btn.addEventListener("click",()=>{
 function takeCommand(message){
         btn.style.display="flex";
     voice.style.display="none";
-    if(message.includes("hii")|| message.includes("hey")|| message.includes("hello") || message.includes("good")||message.includes("hi layra")){
+      para.style.display="none";
+  
+    
+     if(message.includes("hii")|| message.includes("hey")|| message.includes("hello") || message.includes("good")||message.includes("hi layra")){
         
-        speak("Hi Aakash sir ! How can I help you sir?");
+        speak("Hey Aakash sir ! How can I help you sir?");
+        console.log("Hey Aakash sir ! How can I help you sir?")
     }
-     else if(message.includes("who are you?")||message.includes("What is your name?")){
+    
+    
+     else if(message.includes("who are you")||message.includes("what is your name")){
         speak("I am layra a virtual assistant created by Aakash sir");
     }
-       else if(message.includes("How are you?")||message.includes("whats`up")){
+       else if(message.includes("how are you")||message.includes("whats`up")){
         speak("I am fine,How can I help you sir");
     }
 
@@ -118,6 +127,18 @@ window.open("https://github.com/Aakash-gupta76","_blank");
          speak("your task is completed sir")
 
     }
+      else if(message.includes("open chatgpt")){
+        speak("opening chatgpt...")
+        openchatgpt();
+         speak("your task is completed sir")
+
+    }
+
+    
+
+    
+   
+    
         else if(message.includes("time")){
         let time=new Date().toLocaleString(undefined,{hour:"numeric",minute:"numeric"})
         speak(time);
@@ -134,15 +155,70 @@ window.open("https://www.linkedin.com/in/aakash-gupta760771","_blank");
  speak("your task is completed sir")
 
 }
+
+
+
       else {
         
-        let finalText="this is what i found on internet regarding"+message.replace("lyra","")||message.replace("layra","")
+//         let finalText="this is what i found on internet regarding"+message.replace("lyra","")||message.replace("layra","")
 
-     speak(finalText)
+//      speak(finalText)
 
-window.open(`https://www.google.com/search?q=${message.replace("lyra","")}`,"_blank")
+// window.open(`https://www.google.com/search?q=${message.replace("layra","")}`,"_blank")
+ let cleanMsg = message
+    .replace("lyra","")
+    .replace("layra","");
+
+  askGemini(cleanMsg).then(reply => {
+
+    speak(reply);
+    // content.innerText = reply;
+
+  });
     }
 }
+
+
+
+
+
+
+
+
+
+async function askGemini(userMessage){
+
+  const API_KEY = "AIzaSyC8UZlxsdBkmE3NG7qS79BaNeLnPhRcpQA";
+
+  const res = await fetch(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=" + API_KEY,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              { text:userMessage+"reply in short minimum 30 words only and replace text 'google' by Aakash sir  and if ask your name? tell mera naam layra hai" }
+            ]
+          }
+        ]
+      })
+    }
+  );
+
+  const data = await res.json();
+  console.log(data);
+
+  const reply =
+    data.candidates?.[0]?.content?.parts?.[0]?.text;
+    
+
+  return reply || "Sorry, I could not understand.";
+}
+
 
 
 
